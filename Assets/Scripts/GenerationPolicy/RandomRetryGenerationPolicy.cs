@@ -1,41 +1,10 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public class StanfieldControllerScript : MonoBehaviour
+public class RandomRetryGenerationPolicy : IGenerationPolicy
 {
-    [SerializeField] private GameObject starPrefab;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        Vector2[] starPositions = GenerateStarfield();
-        foreach (var pos in starPositions)
-        {
-            CreateStar(pos);
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void CreateStar(Vector2 pos)
-    {
-        GameObject g = Instantiate(starPrefab, transform);
-        g.transform.position = pos;
-        g.GetComponent<Button>().onClick.AddListener(() => HandleStarClick(g));
-    }
-
-    public void HandleStarClick(GameObject star)
-    {
-        
-    }
-    //TODO move somewhere else, just trying to get this working
+    //Consts
     private const int NumberOfStars = 100;
     private const int StarfieldWidth = 500;
     private const int StarfieldHeight = 500;
@@ -44,16 +13,16 @@ public class StanfieldControllerScript : MonoBehaviour
     private const int MinimumDistanceBetweenStars = 25;
     private const int MaximumDistanceBetweenStars = 100;
     
-    public Vector2[] GenerateStarfield()
+    public StarState[] GenerateStarfield()
     {
-        Vector2[] stars = new Vector2[NumberOfStars];
+        StarState[] stars = new StarState[NumberOfStars];
         for (int i = 0; i < NumberOfStars; i++)
         {
             bool placedStar = false;
             for (int j = 0; j < MaxRetries; j++)
             {
-                stars[i] = new Vector2(Random.Range(-1 * StarfieldWidth / 2, StarfieldWidth / 2),
-                    Random.Range(-1 * StarfieldHeight / 2, StarfieldHeight / 2));
+                stars[i] = new StarState(new Vector2(Random.Range(-1 * StarfieldWidth / 2, StarfieldWidth / 2),
+                    Random.Range(-1 * StarfieldHeight / 2, StarfieldHeight / 2)));
 
                 if (i == 0)
                 {
@@ -66,7 +35,7 @@ public class StanfieldControllerScript : MonoBehaviour
                 bool foundMaxDistanceNeighbor = false;
                 for (int k = 0; k < i; k++)
                 {
-                    Vector2 distance = stars[i] - stars[k];
+                    Vector2 distance = stars[i].Position - stars[k].Position;
                     float distanceSquared = distance.sqrMagnitude;
                     if (distanceSquared < MinimumDistanceBetweenStars*MinimumDistanceBetweenStars)
                     {
