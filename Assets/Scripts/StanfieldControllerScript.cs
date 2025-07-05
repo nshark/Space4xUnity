@@ -13,8 +13,7 @@ public class StanfieldControllerScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        PlanetState.InitTypes();
-        _state = new GameState();
+        _state = GameState.Instance;
         foreach (var starState in _state.Stars)
         {
             CreateStar(starState.Position);
@@ -31,6 +30,8 @@ public class StanfieldControllerScript : MonoBehaviour
     {
         GameObject g = Instantiate(starPrefab, transform);
         g.transform.position = pos;
+        g.layer = gameObject.layer;
+        g.transform.GetChild(0).gameObject.layer = gameObject.layer;
         g.GetComponent<Button>().onClick.AddListener(() => HandleStarClick(g));
     }
 
@@ -38,4 +39,6 @@ public class StanfieldControllerScript : MonoBehaviour
     {
         
     }
+    
+    
 }
