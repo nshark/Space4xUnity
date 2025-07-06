@@ -8,7 +8,7 @@ public class PlanetSelectionMenuController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        GameState.Instance.StarSelected += OnStarSelected;
+        GameStateController.Instance.StarSelected += OnStarSelected;
     }
 
     private void OnStarSelected(object sender, GameObjectEventArgs e)

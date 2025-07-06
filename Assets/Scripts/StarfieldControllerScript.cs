@@ -14,7 +14,7 @@ public class StarfieldControllerScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _state = GameState.Instance;
+        _state = GameStateController.Instance.State;
         foreach (var starState in _state.Stars)
         {
             CreateStar(starState);
@@ -34,12 +34,12 @@ public class StarfieldControllerScript : MonoBehaviour
 
     public void HandleStarClick(GameObject star)
     {
-        GameState.Instance.OnStarSelected(star);
+        GameStateController.Instance.OnStarSelected(star);
     }
 
     public void HandleStarDeselect(BaseEventData eventData)
     {
-        GameState.Instance.OnStarSelected(null);
+        GameStateController.Instance.OnStarSelected(null);
     }
     
 }

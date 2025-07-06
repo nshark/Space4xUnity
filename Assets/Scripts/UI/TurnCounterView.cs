@@ -11,8 +11,8 @@ public class TurnCounterView : MonoBehaviour
     void Start()
     {
         _textField = gameObject.GetComponent<TextMeshProUGUI>();
-        _state = GameState.Instance;
-        _state.TurnIncremented += StateOnTurnIncremented;
+        _state = GameStateController.Instance.State;
+        GameStateController.Instance.TurnIncremented += StateOnTurnIncremented;
         UpdateTurnCounterText();
     }
 
