@@ -9,17 +9,12 @@ public class StarView : MonoBehaviour
 
     [SerializeField] 
     private float[] starScales; 
-    private StarState _starState;
+    public StarState StarState;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        GetComponentsInChildren<Image>()[0].sprite = starSprites[_starState.StarType];
-        transform.localScale = new Vector3(starScales[_starState.StarType], starScales[_starState.StarType],
+        GetComponentsInChildren<Image>()[0].sprite = starSprites[StarState.StarType];
+        transform.localScale = new Vector3(starScales[StarState.StarType], starScales[StarState.StarType],
             0);
     }
-
-    public void Initialize(StarState starState)
-    {
-        _starState = starState;
-    } 
 }

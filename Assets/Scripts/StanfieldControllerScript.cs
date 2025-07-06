@@ -23,7 +23,7 @@ public class StanfieldControllerScript : MonoBehaviour
     private void CreateStar(StarState starState)
     {
         GameObject g = Instantiate(starPrefab, transform);
-        g.GetComponent<StarView>().Initialize(starState);
+        g.GetComponent<StarView>().StarState = starState;
         g.transform.position = starState.Position;
         g.layer = gameObject.layer;
         g.transform.GetChild(0).gameObject.layer = gameObject.layer;
@@ -32,7 +32,7 @@ public class StanfieldControllerScript : MonoBehaviour
 
     public void HandleStarClick(GameObject star)
     {
-        
+        GameState.Instance.OnStarSelected(star);
     }
     
     

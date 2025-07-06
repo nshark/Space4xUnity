@@ -14,7 +14,7 @@ public class StarState
     {
         if (starType == -1)
         {
-            StarType = Random.Range(0, 3);
+            StarType = Random.Range(0, 4);
         }
 
         if (planets == null)

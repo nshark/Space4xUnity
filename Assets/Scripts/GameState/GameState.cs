@@ -1,10 +1,19 @@
 ﻿
 using System;
+using UnityEngine;
 
 public class GameState
 {
     private static GameState instance = null;
     public StarState[] Stars { get; set; }
+    public event EventHandler<GameObjectEventArgs> StarSelected;
+
+    public void OnStarSelected(GameObject g)
+    {
+        GameObjectEventArgs args = new GameObjectEventArgs();
+        args.g = g;
+        StarSelected?.Invoke(this, args);
+    }
     public int TurnCounter { get; set; }
     public event EventHandler TurnIncremented;
 
@@ -38,4 +47,9 @@ public class GameState
             return instance;
         }
     }
+}
+
+public class GameObjectEventArgs : EventArgs
+{
+    public GameObject g;
 }
