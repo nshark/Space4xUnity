@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8314634885265452766}
   - component: {fileID: 5395806499431359900}
+  - component: {fileID: 4625362773374130938}
   m_Layer: 0
   m_Name: Star
   m_TagString: Untagged
@@ -81,6 +82,28 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4625362773374130938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283730372131013323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ce7f88451769964eaa62cb78d395ac3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  starSprites:
+  - {fileID: -7336443624978272184, guid: 043adc5118debc74badd0b2f60b36573, type: 3}
+  - {fileID: 4554182523152792430, guid: d0ed49e0c3bf18e4eaddd84cacf16bb0, type: 3}
+  - {fileID: -2139831675952110271, guid: 6c879af31e08a55498f9ba4e9e2981fe, type: 3}
+  - {fileID: -6738170186872648109, guid: f2ff37dcfcfbad94a879910a4cc40117, type: 3}
+  starScales:
+  - 1
+  - 0.75
+  - 0.5
+  - 0.25
 --- !u!1 &7720890102221143871
 GameObject:
   m_ObjectHideFlags: 0

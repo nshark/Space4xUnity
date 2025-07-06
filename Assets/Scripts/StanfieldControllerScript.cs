@@ -16,20 +16,15 @@ public class StanfieldControllerScript : MonoBehaviour
         _state = GameState.Instance;
         foreach (var starState in _state.Stars)
         {
-            CreateStar(starState.Position);
+            CreateStar(starState);
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void CreateStar(Vector2 pos)
+    private void CreateStar(StarState starState)
     {
         GameObject g = Instantiate(starPrefab, transform);
-        g.transform.position = pos;
+        g.GetComponent<StarView>().Initialize(starState);
+        g.transform.position = starState.Position;
         g.layer = gameObject.layer;
         g.transform.GetChild(0).gameObject.layer = gameObject.layer;
         g.GetComponent<Button>().onClick.AddListener(() => HandleStarClick(g));
