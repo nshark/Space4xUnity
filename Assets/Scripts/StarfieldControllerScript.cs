@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public class StanfieldControllerScript : MonoBehaviour
+public class StarfieldControllerScript : MonoBehaviour
 {
     [SerializeField] private GameObject starPrefab;
 
