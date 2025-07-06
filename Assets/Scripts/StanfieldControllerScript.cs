@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -28,12 +29,17 @@ public class StanfieldControllerScript : MonoBehaviour
         g.layer = gameObject.layer;
         g.transform.GetChild(0).gameObject.layer = gameObject.layer;
         g.GetComponent<Button>().onClick.AddListener(() => HandleStarClick(g));
+        g.GetComponent<EventTrigger>().triggers[0].callback.AddListener(HandleStarDeselect);
     }
 
     public void HandleStarClick(GameObject star)
     {
         GameState.Instance.OnStarSelected(star);
     }
-    
+
+    public void HandleStarDeselect(BaseEventData eventData)
+    {
+        GameState.Instance.OnStarSelected(null);
+    }
     
 }
