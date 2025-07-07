@@ -29,17 +29,10 @@ public class StarfieldControllerScript : MonoBehaviour
         g.layer = gameObject.layer;
         g.transform.GetChild(0).gameObject.layer = gameObject.layer;
         g.GetComponent<Button>().onClick.AddListener(() => HandleStarClick(g));
-        g.GetComponent<EventTrigger>().triggers[0].callback.AddListener(HandleStarDeselect);
     }
 
     public void HandleStarClick(GameObject star)
     {
         GameStateController.Instance.OnStarSelected(star);
     }
-
-    public void HandleStarDeselect(BaseEventData eventData)
-    {
-        GameStateController.Instance.OnStarSelected(null);
-    }
-    
 }
