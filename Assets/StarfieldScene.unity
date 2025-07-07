@@ -605,6 +605,7 @@ GameObject:
   - component: {fileID: 1032639045}
   - component: {fileID: 1032639044}
   - component: {fileID: 1032639043}
+  - component: {fileID: 1032639046}
   m_Layer: 5
   m_Name: PlanetSelectionScroll
   m_TagString: Untagged
@@ -701,6 +702,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1032639041}
   m_CullTransparentMesh: 1
+--- !u!114 &1032639046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032639041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1f6b12389572f24abbb189a66f6ec08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  planetButtonPrefab: {fileID: 2444615521947719586, guid: e1f28fd886c5285468289a18fb32f138, type: 3}
 --- !u!1 &1150697262
 GameObject:
   m_ObjectHideFlags: 0

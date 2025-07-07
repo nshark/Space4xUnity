@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PlanetSelectionMenuController : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class PlanetSelectionMenuController : MonoBehaviour
     private void OnStarSelected(object sender, GameObjectEventArgs e)
     {
         _selectedStarState = e.g.GetComponent<StarView>().StarState;
-        transform.GetChild(0).GameObject().SetActive(true);
+        var planetSelectionScroll = transform.GetChild(0).GameObject();
+        planetSelectionScroll.SetActive(true);
+        planetSelectionScroll.GetComponent<PlanetSelectionScroller>().Initialize(_selectedStarState);
     }
 }
