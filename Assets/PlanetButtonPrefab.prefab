@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8806210686684325432}
   - component: {fileID: 5330664586470733540}
   - component: {fileID: 1204807429570085232}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PlanetLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7630320369040802900}
   - component: {fileID: 8498863114552425716}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PlanetButtonPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 6657310674645054701}
   - component: {fileID: 1413646476919684411}
   - component: {fileID: 2886440659852427517}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PlanetButtonSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
